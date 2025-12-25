@@ -1,0 +1,25 @@
+{
+    "soldier": {
+        "cost": 50,
+        "health": 100,
+        "damage": 10,
+        "speed": 2
+    },
+    "captain": {
+        "cost": 50,
+        "health": 150,
+        "damage": 15,
+        "speed": 2
+    },
+    "turret": {
+        "cost": 100,
+        "health": 200,
+        "damage": 20,
+        "range": 150,
+        "fire_rate": 1.0
+    },
+    "gold_mine": {
+        "cost": 300,
+        "income": 100
+    }
+}

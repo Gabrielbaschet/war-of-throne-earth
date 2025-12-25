@@ -1,0 +1,363 @@
+<!doctype html>
+<html lang="fr">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>War of Throne Earth — Jeu de guerre stratégique</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, Helvetica, sans-serif;
+      background: #0a0a0a;
+      color: #fff;
+      line-height: 1.6;
+    }
+
+    /* BANNIÈRE PRINCIPALE */
+    .ad-banner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 24px;
+      border-radius: 12px;
+      background: linear-gradient(90deg, #3b0000, #0f172a);
+      color: #fff;
+      border: 2px solid rgba(255, 255, 255, 0.04);
+      margin: 20px;
+      gap: 20px
+    }
+
+    .ad-left {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      flex: 1
+    }
+
+    .ad-logo {
+      width: 80px;
+      height: 80px;
+      border-radius: 8px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(180deg, #6b1616, #2b0a0a);
+      flex-shrink: 0
+    }
+
+    .ad-logo img.ad-icon {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block
+    }
+
+    .ad-text h1 {
+      margin: 0;
+      font-size: 24px;
+      letter-spacing: 1px;
+      font-weight: 900
+    }
+
+    .ad-text p {
+      margin: 6px 0 0;
+      font-size: 14px;
+      opacity: 0.9;
+      font-style: italic
+    }
+
+    .ad-cta a {
+      display: inline-block;
+      padding: 12px 20px;
+      background: #b91c1c;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      box-shadow: 0 6px 14px rgba(185, 28, 28, 0.3);
+      transition: all 0.3s;
+      border: 2px solid #b91c1c
+    }
+
+    .ad-cta a:hover {
+      background: #8b1515;
+      box-shadow: 0 8px 20px rgba(185, 28, 28, 0.4)
+    }
+
+    /* SECTION DESCRIPTION */
+    .description-section {
+      max-width: 1200px;
+      margin: 40px auto;
+      padding: 0 20px
+    }
+
+    .desc-header {
+      text-align: center;
+      margin-bottom: 40px
+    }
+
+    .desc-header h2 {
+      font-size: 32px;
+      margin-bottom: 10px;
+      color: #ffd9b3
+    }
+
+    .desc-header .tagline {
+      font-size: 18px;
+      color: #999;
+      font-style: italic
+    }
+
+    .desc-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 40px
+    }
+
+    .desc-card {
+      padding: 24px;
+      border-radius: 10px;
+      border-left: 4px solid;
+      transition: transform 0.3s, box-shadow 0.3s
+    }
+
+    .desc-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5)
+    }
+
+    .card-strategy {
+      background: linear-gradient(135deg, rgba(185, 28, 28, 0.2), rgba(139, 21, 21, 0.2));
+      border-left-color: #b91c1c
+    }
+
+    .card-strategy h3 {
+      color: #ff6b6b;
+      font-size: 18px;
+      margin-bottom: 12px
+    }
+
+    .card-diplomacy {
+      background: linear-gradient(135deg, rgba(100, 116, 139, 0.2), rgba(71, 85, 105, 0.2));
+      border-left-color: #6b7280
+    }
+
+    .card-diplomacy h3 {
+      color: #a0aec0;
+      font-size: 18px;
+      margin-bottom: 12px
+    }
+
+    .card-conquest {
+      background: linear-gradient(135deg, rgba(217, 119, 6, 0.2), rgba(180, 83, 9, 0.2));
+      border-left-color: #d97706
+    }
+
+    .card-conquest h3 {
+      color: #fbbf24;
+      font-size: 18px;
+      margin-bottom: 12px
+    }
+
+    .desc-card p {
+      font-size: 14px;
+      line-height: 1.8;
+      opacity: 0.9
+    }
+
+    .full-description {
+      background: linear-gradient(135deg, rgba(30, 41, 59, 0.8), rgba(15, 23, 42, 0.8));
+      padding: 32px;
+      border-radius: 10px;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      margin-bottom: 40px;
+      max-width: 1000px;
+      margin-left: auto;
+      margin-right: auto
+    }
+
+    .full-description h3 {
+      font-size: 22px;
+      color: #ffd9b3;
+      margin-bottom: 16px
+    }
+
+    .full-description p {
+      font-size: 15px;
+      line-height: 1.9;
+      color: #e2e8f0
+    }
+
+    .features-list {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px
+    }
+
+    .features-list h3 {
+      font-size: 22px;
+      color: #ffd9b3;
+      margin-bottom: 20px;
+      text-align: center
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px
+    }
+
+    .feature-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px
+    }
+
+    .feature-item::before {
+      content: '⚔️';
+      font-size: 20px;
+      flex-shrink: 0
+    }
+
+    .feature-item span {
+      font-size: 14px;
+      color: #cbd5e1
+    }
+
+    .cta-footer {
+      text-align: center;
+      padding: 40px 20px;
+      background: linear-gradient(90deg, rgba(185, 28, 28, 0.1), rgba(107, 22, 22, 0.1));
+      margin-top: 40px;
+      border-top: 1px solid rgba(255, 255, 255, 0.1)
+    }
+
+    .cta-footer a {
+      display: inline-block;
+      padding: 14px 28px;
+      background: #b91c1c;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      box-shadow: 0 8px 20px rgba(185, 28, 28, 0.3)
+    }
+
+    .cta-footer a:hover {
+      background: #8b1515;
+      box-shadow: 0 10px 30px rgba(185, 28, 28, 0.5)
+    }
+
+    @media(max-width:768px) {
+      .ad-banner {
+        flex-direction: column;
+        padding: 16px
+      }
+
+      .ad-left {
+        flex-direction: column;
+        text-align: center
+      }
+
+      .ad-text h1 {
+        font-size: 20px
+      }
+
+      .ad-cta {
+        width: 100%
+      }
+
+      .ad-cta a {
+        width: 100%;
+        text-align: center
+      }
+
+      .desc-grid {
+        grid-template-columns: 1fr
+      }
+
+      .desc-header h2 {
+        font-size: 24px
+      }
+
+      .full-description {
+        padding: 20px
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- BANNIÈRE PRINCIPALE -->
+  <div class="ad-banner">
+    <div class="ad-left">
+      <div class="ad-logo">
+        <img src="assets/icon.png" alt="War of Throne Earth" class="ad-icon">
+      </div>
+      <div class="ad-text">
+        <h1>War of Throne Earth</h1>
+        <p>Jeu de guerre stratégique — conquêtes, alliances, sièges.</p>
+      </div>
+    </div>
+    <div class="ad-cta">
+      <a href="WarOfThroneEarth.exe">Pré-inscrivez-vous</a>
+      <a href="assets/WarOfThroneEarth_package.zip" download
+        style="margin-left:10px;background:#0ea5a1;border-color:#0ea5a1">
+        Télécharger le jeu
+      </a>
+    </div>
+  </div>
+
+  <!-- CONTENU -->
+  <div class="description-section">
+    <div class="desc-header">
+      <h2>DOMINEZ LES TERRES</h2>
+      <p class="tagline">Forgez votre dynastie — Le pouvoir absolu n'attend que vous</p>
+    </div>
+
+    <div class="desc-grid">
+      <div class="desc-card card-strategy">
+        <h3>⚔️ Stratégie Militaire</h3>
+        <p>Commandez des armées colossales et lancez des assauts dévastateurs.</p>
+      </div>
+      <div class="desc-card card-diplomacy">
+        <h3>🤝 Diplomatie Féroce</h3>
+        <p>Négociez, trahissez, manipulez — la politique est une arme.</p>
+      </div>
+      <div class="desc-card card-conquest">
+        <h3>👑 Gestion d'Empire</h3>
+        <p>Administrez ressources, héros et économie pour dominer.</p>
+      </div>
+    </div>
+
+    <div class="full-description">
+      <h3>Votre Histoire, Vos Conséquences</h3>
+      <p>War of Throne Earth est un jeu de stratégie et de conquête totale.</p>
+    </div>
+
+    <p>Explorez les vastes étendues et bâtissez votre propre légende.</p>
+  </div>
+
+  <!-- ANCRE PRÉINSCRIPTION -->
+  <div id="preinscription"></div>
+
+  <!-- CTA FOOTER -->
+  <div class="cta-footer">
+    <a href="#preinscription">
+      Pré-inscrivez-vous maintenant et préparez votre ascension
+    </a>
+  </div>
+
+</body>
+
+</html>
